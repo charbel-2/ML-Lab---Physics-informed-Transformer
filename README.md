@@ -24,6 +24,10 @@ An example of the resulting architecture is shown in the attached figure, where 
 
 ![Figure 1: System architecture diagram](Images/transformer_architecture.png)
 
+# Theoretical background
+
+All theoretical explanation of the transformer model, in addition to the selected hyperparameters, sequencing, and batching of data, may be found in the [attached paper](./paper/).
+
 # Managing training
 
 ## [Data-driven model training](./main_paper_codes/)
@@ -31,7 +35,7 @@ An example of the resulting architecture is shown in the attached figure, where 
   - [Data-driven model training](./main_paper_codes/InteractionMetaModel_Data_train.py)
 
 
-Run code with the corresponding [datasets](./Datasets/) for the training, which will save a model 'Interaction_metamodel_physics.pth' or 'Interaction_metamodel_data.pth', for the physics-informed or data-driven models, respectively, every 200 epochs. 
+Run code with the corresponding datasets for the training, which will save a model 'Interaction_metamodel_physics.pth' or 'Interaction_metamodel_data.pth', for the physics-informed or data-driven models, respectively, every 200 epochs. 
 
 Please note that the models will try to utilize "cuda" if available, if not, the training process may be slow.
 
