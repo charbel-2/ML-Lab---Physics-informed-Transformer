@@ -24,3 +24,42 @@ An example of the resulting architecture is shown in the attached figure, where 
 
 ![Figure 1: System architecture diagram](Images/transformer_architecture.png)
 
+# Managing training
+
+## [Main paper training](./main_paper_codes/)
+
+
+  - [Physics-informed model training](./main_paper_codes/InteractionMetaModel_Physics_train.py),
+  - [Data-driven model training](./main_paper_codes/InteractionMetaModel_Data_train.py)
+
+
+Run any of the codes with the corresponding [datasets](./Datasets/) for the training, which will save a model 'Interaction_metamodel_physics.pth' or 'Interaction_metamodel_data.pth', for the physics-informed or data-driven models, respectively, every 200 epochs. 
+
+Please note that the models will try to utilize "cuda" if available, if not, the training process may be slow.
+
+# Software requirements
+
+Models were trained and tested in a conda environment utilizing Python 3.12.3 with:
+
+- pandas
+- numpy
+- pytorch
+- wandb
+- matplotlib
+- scikit-learn
+- scipy
+- random
+
+Please refer to the official [installation guide](https://www.anaconda.com/docs/tools/working-with-conda/packages/install-packages) to install the mentioned packages in your environment.
+
+# Hardware requirements
+
+While all scripts can run on CPU, execution may be frustratingly slow. For faster training, a GPU is highly recommended. To run the paper's examples, we used a laptop equipped with a Nvidia RTX 4080 GPU.
+You can follow the official [CUDA documentation](https://docs.nvidia.com/cuda/index.html) for the installation guide of the cuda-toolkit on your Windows or Linux PC. 
+
+# Robot control requirements
+
+The work was tested on a Franka Emika Panda, using [ROS2 Humble](https://docs.ros.org/en/humble/index.html) on [Ubuntu 22.04](https://releases.ubuntu.com/jammy/).
+
+
+
