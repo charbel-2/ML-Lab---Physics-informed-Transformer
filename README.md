@@ -7,6 +7,7 @@ This repo includes initial Python codes of a purely data-driven transformer for 
   - **Learnable physics parameters**
 
 An example of the resulting architecture is shown in the attached figure, where inputs/outputs of the system are divided as follows:
+
 **Inputs**:
 
 
