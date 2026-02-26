@@ -6,3 +6,20 @@ This repo includes initial Python codes of a purely data-driven transformer for 
   - **Physics-focused attention mechanisms**,
   - **Learnable physics parameters**
 
+An example of the resulting architecture is shown in the attached figure, where inputs/outputs of the system are divided as follows:
+**Inputs**:
+
+
+  - **Cartesian Positions**: (x, y, z),
+  - **Cartesian Velocities**: (ẋ, ẏ, ż),
+  - **Cartesian Accelerations**: (ẍ, ÿ, z̈),
+  - **Cartesian Target positions**: (xₜ, yₜ, zₜ),
+  - **Cartesian Target velocities**: (ẋₜ, ẏₜ, żₜ)
+
+**Outputs**:
+
+
+  - **Interaction Forces**: (Fₓ, Fᵧ, F_z)
+
+![Figure 1: System architecture diagram](Images/transformer_architecture.png)
+
