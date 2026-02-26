@@ -26,14 +26,12 @@ An example of the resulting architecture is shown in the attached figure, where 
 
 # Managing training
 
-## [Main paper training](./main_paper_codes/)
+## [Data-driven model training](./main_paper_codes/)
 
-
-  - [Physics-informed model training](./main_paper_codes/InteractionMetaModel_Physics_train.py),
   - [Data-driven model training](./main_paper_codes/InteractionMetaModel_Data_train.py)
 
 
-Run any of the codes with the corresponding [datasets](./Datasets/) for the training, which will save a model 'Interaction_metamodel_physics.pth' or 'Interaction_metamodel_data.pth', for the physics-informed or data-driven models, respectively, every 200 epochs. 
+Run code with the corresponding [datasets](./Datasets/) for the training, which will save a model 'Interaction_metamodel_physics.pth' or 'Interaction_metamodel_data.pth', for the physics-informed or data-driven models, respectively, every 200 epochs. 
 
 Please note that the models will try to utilize "cuda" if available, if not, the training process may be slow.
 
