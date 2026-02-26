@@ -26,7 +26,7 @@ An example of the resulting architecture is shown in the attached figure, where 
 
 # Theoretical background
 
-All theoretical explanation of the transformer model, in addition to the selected hyperparameters, sequencing, and batching of data, may be found in the [attached paper](./paper/).
+All theoretical explanation of the transformer model, in addition to the selected hyperparameters, sequencing, and batching of data, may be found in the [attached paper](./Paper/).
 
 # Managing training
 
