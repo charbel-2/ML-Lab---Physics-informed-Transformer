@@ -26,7 +26,7 @@ An example of the resulting architecture is shown in the attached figure, where 
 
 # Theoretical background
 
-All theoretical explanation of the transformer model, in addition to the selected hyperparameters, sequencing, and batching of data, may be found in the [attached paper](./Paper/Physics-Informed_transformer_ML_Lab.pdf).
+All theoretical explanation of the transformer model, in addition to the selected hyperparameters, sequencing, and batching of data, may be found in the [attached paper](./Paper/Physics-Informed_transformer_ML_Lab.pdf). The paper also describes the data gathering approach with the chirp signal used.
 
 # Managing training
 
@@ -59,9 +59,13 @@ Please refer to the official [installation guide](https://www.anaconda.com/docs/
 While all scripts can run on CPU, execution may be frustratingly slow. For faster training, a GPU is highly recommended. To run the paper's examples, we used a laptop equipped with a Nvidia RTX 4080 GPU.
 You can follow the official [CUDA documentation](https://docs.nvidia.com/cuda/index.html) for the installation guide of the cuda-toolkit on your Windows or Linux PC. 
 
-# Robot control requirements
+# Robot controller
 
-The work was tested on a Franka Emika Panda, using [ROS2 Humble](https://docs.ros.org/en/humble/index.html) on [Ubuntu 22.04](https://releases.ubuntu.com/jammy/).
+The work was tested on a Franka Emika Panda, using [ROS2 Humble](https://docs.ros.org/en/humble/index.html) on [Ubuntu 22.04](https://releases.ubuntu.com/jammy/), and in simulation using [MuJoCo3.2.0](https://mujoco.org/). The robot is controlled using a Cartesian impedance controller, expecting as input the desired Cartesian position (xₜ, yₜ, zₜ).
+
+## Simulation Environment and Control
+
+## Real Robot Control
 
 
 
