@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<mujoco model="two_link_planar">
+    <compiler angle="degree" coordinate="local"/>
+    <option timestep="0.001" gravity="0 0 -9.81"/>
+    
+    <worldbody>
+    
+        <!-- Base of the robot -->
+        <body name="base" pos="0 0 0.1">
+            <!-- First joint and link -->
+            <joint name="joint1" type="hinge" axis="0 0 1" limited="true" range="-180 180"/>
+            <geom name="link1" type="capsule" fromto="0 0 0 0.5 0 0" size="0.05" rgba="0.1 0.4 0.8 1"/>
+            
+            <!-- Second joint and link -->
+            <body name="link2_body" pos="0.5 0 0">
+                <joint name="joint2" type="hinge" axis="0 0 1" limited="true" range="-180 180"/>
+                <geom name="link2" type="capsule" fromto="0 0 0 0.5 0 0" size="0.05" rgba="0.8 0.4 0.1 1"/>
+                
+                <!-- End effector marker -->
+                <site name="ee_site" pos="0.5 0 0" size="0.02" rgba="1 0 0 1"/>
+            </body>
+        </body>
+    </worldbody>
+
+    <actuator>
+        <motor name="motor1" joint="joint1" ctrlrange="-10 10" ctrllimited="true"/>
+        <motor name="motor2" joint="joint2" ctrlrange="-10 10" ctrllimited="true"/>
+    </actuator>
+</mujoco>
+
