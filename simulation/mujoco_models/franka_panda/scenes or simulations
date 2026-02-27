@@ -1,0 +1,16 @@
+panda.xml ---> panda without environment
+
+scene.xml ---> panda with ground only
+
+mjx_single_cube.xml ---> panda with ground and cube
+
+
+### run the following for simulations
+
+sim_panda_scene_withcube ---> panda with ground and cube
+
+sim_panda_scene ---> panda with ground
+
+sim_panda ---> panda alone
+
+ros2_mj_panda_scene ---> ros2 panda with ground, without hand

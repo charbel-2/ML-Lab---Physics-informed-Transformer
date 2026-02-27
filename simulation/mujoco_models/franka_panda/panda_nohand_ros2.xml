@@ -1,0 +1,78 @@
+<mujoco model="panda scene">
+  <include file="mjx_panda_nohand.xml"/>
+
+  <statistic center="0.3 0 0.4" extent="1"/>
+
+  <!-- Option: for global override, if many soft geoms:
+  <option timestep="0.005" gravity="0 0 -9.81" iterations="10" ls_iterations="20" integrator="implicitfast"
+          o_solref="0.05 1" o_solimp="0.9 1 0.01">
+    <flag eulerdamp="disable" contact="enable" override="contact"/>
+  </option>
+  Otherwise, per-geom tuning below.
+  -->
+  <option timestep="0.005" gravity="0 0 -9.81" iterations="10" ls_iterations="20" integrator="implicitfast">
+    <flag eulerdamp="disable" contact="enable"/>
+  </option>
+
+  <custom>
+    <numeric data="12" name="max_contact_points"/>
+  </custom>
+
+  <visual>
+    <headlight diffuse="0.6 0.6 0.6" ambient="0.3 0.3 0.3" specular="0 0 0"/>
+    <rgba haze="0.15 0.25 0.35 1"/>
+    <global azimuth="120" elevation="-20"/>
+    <scale contactwidth="0.075" contactheight="0.025" forcewidth="0.05" com="0.05" framewidth="0.01" framelength="0.2"/>
+  </visual>
+
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0" width="512" height="3072"/>
+    <texture type="2d" name="groundplane" builtin="checker" mark="edge"
+             rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3"
+             markrgb="0.8 0.8 0.8" width="300" height="300"/>
+    <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0.2"/>
+    <!-- Optional material for sponge -->
+    <material name="sponge_mat" rgba="1 0.8 0.2 0.65"/>
+  </asset>
+
+  <worldbody>
+    <!-- Floor plane (static) -->
+    <light pos="0 0 1.5" dir="0 0 -1" directional="true"/>
+    <geom name="floor" type="plane" size="0 0 0.05"
+          material="groundplane"
+          contype="1" conaffinity="1"/>
+
+    <!-- Table -->
+    <body name="table" pos="0.6 0 0.275">
+      <geom name="table_top"
+            type="box"
+            size="0.4 0.3 0.025"
+            rgba="0.6 0.4 0.3 1"
+            contype="1" conaffinity="1"
+            mass="20"/>
+    </body>
+
+    <!-- Sponge body on top of the table -->
+    <!-- Half-size: 0.30 x 0.30 x 0.025 m -->
+    <!-- Positioned so bottom sits at table top z = 0.275 + 0.025 = 0.300 -->
+    <!-- Damping is approximated as k = 1/ (solref[0]^2) hence in this case k is approximated as 400. other parameters affect that too-->
+     <body name="sponge" pos="0.6 0 0.325">
+      <geom name="sponge_geom"
+            type="box"
+            size="0.30 0.30 0.025"
+            material="sponge_mat"
+            contype="1" conaffinity="1"
+            density="5"
+            condim="4"
+            friction="10 0.1 0.01"
+            margin="0.004"
+            solref="0.05 1"
+            solimp="0.9 1 0.01"/>
+    </body> 
+    
+
+
+    <!-- (Optional) other objects, robot, etc. come from include -->
+  </worldbody>
+</mujoco>
+
