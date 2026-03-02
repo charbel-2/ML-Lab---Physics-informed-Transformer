@@ -65,6 +65,8 @@ The work was tested on a Franka Emika Panda, using [ROS2 Humble](https://docs.ro
 
 ## Simulation Environment and Control
 
+Once MuJoCo is installed succesfully, we are going to use a [MuJoCo-ROS2 brigde](./simulation/mujoco_ros2)
+
 ## Real Robot Control
 
 
