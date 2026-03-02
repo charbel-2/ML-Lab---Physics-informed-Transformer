@@ -67,6 +67,26 @@ The work was tested on a Franka Emika Panda, using [ROS2 Humble](https://docs.ro
 
 Once MuJoCo is installed succesfully, we are going to use a [MuJoCo-ROS2 brigde](./simulation/mujoco_ros2) to allow us to communicate with the robot in simulation through ROS2. The simulation folder also includes a [controller launch package](./simulation/cartesian_impedance_mujoco_launch_pkg), which runs the [Cartesian impedance controller](./simulation/mujoco_joint_commander_cpp/src/Cartesian_Impedance_controller.cpp) and the reference generator node. 
 
+### [Cartesian Impedance Controller](./simulation/mujoco_joint_commander_cpp/src/Cartesian_Impedance_controller.cpp)
+
+The controller subscribes to:
+
+ - **optitrack_pose** and **optitrack_pose_future**: includes desired Cartesian positions and orientations;
+ - **joint_state**: includes corresponding joint angles, angular velocities, and effort;
+ - **ee_wrench_sim**: which is a force/torque sensor added to the robot's end-effector in MuJoCo.
+
+Then, in addition to the commanded joint torques published to the robot, the node also publishes all topics required at the transformer's input:
+
+ - **ee_contact_wrench_filtered**: filtered forces and torques at the end-effector;
+ - **actual_ee_pose**: actual Cartesian position;
+ - **desired_ee_pose**: desired Cartesian position;
+ - **actual_ee_velocity**: actual Cartesian velocity;
+ - **desired_ee_velocity**: desired Cartesian velocity;
+ - **actual_ee_acceleration**: actual Cartesian acceleration;
+ - **future_desired_ee_pose**: planned desired Cartesian position (=**optitrack_pose_future**);
+ - **future_desired_ee_velovity**: planned desired Cartesian velocity;
+ - **future_desired_ee_acceleration**: planned desired Cartesian acceleration.
+
 ## Real Robot Control
 
 
