@@ -188,8 +188,7 @@ public:
       std::bind(&JointSpacePositionController::jointStateCallback, this, std::placeholders::_1)
     );
     desired_pose_sub_ = create_subscription<geometry_msgs::msg::PoseStamped>(
-      "/opt_traj", 10,
-      // optitrack_pose // test with mpc for now
+      "/optitrack_pose", 10,
       std::bind(&JointSpacePositionController::desiredPoseCallback, this, std::placeholders::_1)
     );
 
@@ -201,7 +200,7 @@ public:
     
     // New subscription & publisher for future desired EE pose
     future_pose_sub_ = create_subscription<geometry_msgs::msg::PoseStamped>(
-      "/opt_traj", 10,
+      "/optitrack_pose_future", 10,
       std::bind(&JointSpacePositionController::futureDesiredPoseCallback, this, std::placeholders::_1)
     );
     
