@@ -65,7 +65,7 @@ The work was tested on a Franka Emika Panda, using [ROS2 Humble](https://docs.ro
 
 ## Simulation Environment and Control
 
-Once MuJoCo is installed succesfully, we are going to use a [MuJoCo-ROS2 brigde](./simulation/mujoco_ros2)
+Once MuJoCo is installed succesfully, we are going to use a [MuJoCo-ROS2 brigde](./simulation/mujoco_ros2) to allow us to communicate with the robot in simulation through ROS2. The simulation folder also includes a [controller launch package](./simulation/cartesian_impedance_mujoco_launch_pkg), which runs the [Cartesian impedance controller](./simulation/mujoco_joint_commander_cpp/src/Cartesian_Impedance_controller.cpp) and the reference generator node. 
 
 ## Real Robot Control
 
