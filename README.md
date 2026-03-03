@@ -69,7 +69,7 @@ Once MuJoCo is installed succesfully, we are going to use a [MuJoCo-ROS2 brigde]
 
 ### [Cartesian Impedance Controller](./simulation/mujoco_joint_commander_cpp/src/Cartesian_Impedance_controller.cpp)
 
-The controller subscribes to:
+This node allows you to control the robot in the MuJoCo environment by subscribing to the desired Cartesian positions and orientations. It refers to and uses the [official robot's URDF](./simulation/robot_descriptions) to properly calculate IK and Jacobians, so you may need to modify the path to that in case you want to run simulations on your personal laptop. The controller subscribes to:
 
  - **optitrack_pose** and **optitrack_pose_future**: includes desired Cartesian positions and orientations;
  - **joint_state**: includes corresponding joint angles, angular velocities, and effort;
@@ -86,6 +86,10 @@ Then, in addition to the commanded joint torques published to the robot, the nod
  - **future_desired_ee_pose**: planned desired Cartesian position (=**optitrack_pose_future**);
  - **future_desired_ee_velovity**: planned desired Cartesian velocity;
  - **future_desired_ee_acceleration**: planned desired Cartesian acceleration.
+
+Use the following command to run the Cartesian controller:
+
+<pre> ``` cd ~/ros2_ws source colcon build source install/setup.bash ros2 run mujoco_joint_commander_cpp Cartesian_impedance_controller  ``` </pre>
 
 ## Real Robot Control
 
