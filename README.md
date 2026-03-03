@@ -22,7 +22,13 @@ An example of the resulting architecture is shown in the attached figure, where 
 
   - **Interaction Forces**: (Fₓ, Fᵧ, F_z)
 
-![Figure 1: System architecture diagram](Images/transformer_architecture.png)
+<p align="center">
+  <img src="Images/transformer_architecture" width="800"/>
+</p>
+
+<p align="center">
+  <strong>Figure 1:</strong> System architecture diagram.
+</p>
 
 # Theoretical background
 
