@@ -67,7 +67,7 @@ The work was tested on a Franka Emika Panda, using [ROS2 Humble](https://docs.ro
 
 Once MuJoCo is installed succesfully, we are going to use a [MuJoCo-ROS2 brigde](./simulation/mujoco_ros2) to allow us to communicate with the robot in simulation through ROS2. The simulation folder also includes a [controller launch package](./simulation/cartesian_impedance_mujoco_launch_pkg), which runs the [Cartesian impedance controller](./simulation/mujoco_joint_commander_cpp/src/Cartesian_Impedance_controller.cpp) and the reference generator node.
 
-In order to launch the MuJoCo environment with the installed MuJoCo-ROS2 bridge, please add the following to a terminal. Please note that this terminal should be always open and running as long as you are working with the simulation. To stop and exit MuJoCo you simply have to kill the node or exit the terminal. 
+In order to launch the MuJoCo environment with the installed MuJoCo-ROS2 bridge, please add the following to a terminal. Please note that this terminal should be always open and running as long as you are working with the simulation. To stop and exit MuJoCo you simply have to kill the node or exit the terminal. This node should always be the first one to launch, and it's mandatory for other nodes/controllers to work properly. 
 
 ```bash
 $ cd ~/ros2_ws
@@ -104,6 +104,10 @@ $ colcon build
 $ source install/setup.bash
 $ ros2 run mujoco_joint_commander_cpp Cartesian_impedance_controller
 ```
+
+Once you have both terminals open and running, the robot will move to a generic initial position and your window including the environment should look like the following image:
+
+![Figure 2: MuJoCo Environment with Cartesian Impedance Controller](Images/MuJoCo_environment.png)
 
 ## Real Robot Control
 
