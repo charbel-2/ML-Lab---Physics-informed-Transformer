@@ -120,7 +120,28 @@ Once you have both terminals open and running, the robot will move to a generic 
 <p align="center">
   <strong>Figure 2:</strong> MuJoCo environment with the Cartesian impedance controller running.
 </p>
+
+You can publish the commanded or desired Cartesian positions using the reference generator code. To do so, you need to run a new node by opening a new terminal and pasting the following commands. Once done, the robot will start following the desired position in the environment. The goal is to publish the correct desired position so that the robot can interact with the sponge and generate forces, which can be used to train your model.
+
+```bash
+$ cd ~/ros2_ws
+$ colcon build
+$ source install/setup.bash
+$ ros2 run reference_generator reference_generator
+```
+
+Alternatively, you may use the launch file, which will first run the Cartesian position controller, and then run the reference generator after 0.5 seconds. To do so, add the following in a clean terminal. In this setup, a single terminal is sufficient. Nevertheless, this may limit the ability to effectively monitor and debug the system.
+
+```bash
+$ cd ~/ros2_ws
+$ colcon build
+$ source install/setup.bash
+$ ros2 launch cartesian_impedance_mujoco_launch_pkg cartesian_impedance_mujoco_launch.py
+```
+
 ## Real Robot Control
+
+## Recording Data
 
 
 
