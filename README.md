@@ -23,7 +23,7 @@ An example of the resulting architecture is shown in the attached figure, where 
   - **Interaction Forces**: (Fₓ, Fᵧ, F_z)
 
 <p align="center">
-  <img src="Images/transformer_architecture" width="800"/>
+  <img src="Images/transformer_architecture.png" width="800"/>
 </p>
 
 <p align="center">
