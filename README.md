@@ -108,7 +108,7 @@ $ ros2 run mujoco_joint_commander_cpp Cartesian_impedance_controller
 Once you have both terminals open and running, the robot will move to a generic initial position and your window including the environment should look like the following image:
 
 <p align="center">
-  <img src="Images/MuJoCo_environment.png" width="800"/>
+  <img src="Images/MuJoCo_environment.png" width="400"/>
 </p>
 
 <p align="center">
