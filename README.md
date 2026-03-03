@@ -89,7 +89,7 @@ Then, in addition to the commanded joint torques published to the robot, the nod
 
 Paste the following commands in a terminal to run the Cartesian controller:
 
-<pre>```bash
+<pre> bash
 $ cd ~/ros2_ws
 $ colcon build
 $ source install/setup.bash
