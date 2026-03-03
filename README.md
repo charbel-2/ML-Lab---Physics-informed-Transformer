@@ -65,11 +65,20 @@ The work was tested on a Franka Emika Panda, using [ROS2 Humble](https://docs.ro
 
 ## Simulation Environment and Control
 
-Once MuJoCo is installed succesfully, we are going to use a [MuJoCo-ROS2 brigde](./simulation/mujoco_ros2) to allow us to communicate with the robot in simulation through ROS2. The simulation folder also includes a [controller launch package](./simulation/cartesian_impedance_mujoco_launch_pkg), which runs the [Cartesian impedance controller](./simulation/mujoco_joint_commander_cpp/src/Cartesian_Impedance_controller.cpp) and the reference generator node. 
+Once MuJoCo is installed succesfully, we are going to use a [MuJoCo-ROS2 brigde](./simulation/mujoco_ros2) to allow us to communicate with the robot in simulation through ROS2. The simulation folder also includes a [controller launch package](./simulation/cartesian_impedance_mujoco_launch_pkg), which runs the [Cartesian impedance controller](./simulation/mujoco_joint_commander_cpp/src/Cartesian_Impedance_controller.cpp) and the reference generator node.
+
+In order to launch the MuJoCo environment with the installed MuJoCo-ROS2 bridge, please add the following to a terminal. Please note that this terminal should be always open and running as long as you are working with the simulation. To stop and exit MuJoCo you simply have to kill the node or exit the terminal. 
+
+```bash
+$ cd ~/ros2_ws
+$ colcon build
+$ source install/setup.bash
+$ ros2 launch mujoco_ros2 franka_example.py 
+```
 
 ### [Cartesian Impedance Controller](./simulation/mujoco_joint_commander_cpp/src/Cartesian_Impedance_controller.cpp)
 
-This node allows you to control the robot in the MuJoCo environment by subscribing to the desired Cartesian positions and orientations. It refers to and uses the [official robot's URDF](./simulation/robot_descriptions) to properly calculate IK and Jacobians, so you may need to modify the path to that in case you want to run simulations on your personal laptop. The controller subscribes to:
+This node allows you to control the robot in the MuJoCo environment by subscribing to the desired Cartesian positions and orientations. It refers to and uses the [official robot's URDF](./simulation/robot_descriptions) to properly calculate IK and Jacobians, so you may need to modify the path to point to that if you want to run simulations on your personal laptop. The controller subscribes to:
 
  - **optitrack_pose** and **optitrack_pose_future**: includes desired Cartesian positions and orientations;
  - **joint_state**: includes corresponding joint angles, angular velocities, and effort;
@@ -87,7 +96,7 @@ Then, in addition to the commanded joint torques published to the robot, the nod
  - **future_desired_ee_velovity**: planned desired Cartesian velocity;
  - **future_desired_ee_acceleration**: planned desired Cartesian acceleration.
 
-Paste the following commands in a terminal to run the Cartesian controller:
+Add the following commands to a terminal to run the Cartesian controller:
 
 ```bash
 $ cd ~/ros2_ws
