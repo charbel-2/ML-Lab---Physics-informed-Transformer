@@ -89,7 +89,7 @@ Then, in addition to the commanded joint torques published to the robot, the nod
 
 Use the following command to run the Cartesian controller:
 
-<pre>```bash cd ~/ros2_ws source colcon build source install/setup.bash ros2 run mujoco_joint_commander_cpp Cartesian_impedance_controller ``` </pre>
+<pre>```bash $cd ~/ros2_ws $colcon build $source install/setup.bash $ros2 run mujoco_joint_commander_cpp Cartesian_impedance_controller ```</pre>
 
 ## Real Robot Control
 
